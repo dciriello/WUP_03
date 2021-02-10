@@ -50,9 +50,15 @@ The people who sit in the back drink considerably more than the people sitting i
 model1 <- aov(alcohol~Seat,data=davisdata)
 summary.aov(model1)
 ```
-  
-The people who sit in the back drink the most.
+
+## When significant follow up with TukeyHSD  
+
+```{r}
+plot(TukeyHSD(model1))
+```
+
+The P-value is extremely small which means we reject the null hpothesis. And the Tukey HSD plot shows that as you move from the front to the back, the amount of alcohol consumption increases. The people in the back drink a lot more than the people in the middle or front. However, the middle-front shows no evidence of difference in the average alcohol consumption.
 
 ## Conclusions
 
-In order of alcohol consumption from highest to lowest by seat row it would be: Back, Middle and then Front. So, yes, there is a difference in the amount of alcohol you consume and the row you choose to sit in.
+Because the P-value is so small, it is unlikely that alcohol consumption in all 3 seat rows would be the same. We reject the null hypothesis. In order of alcohol consumption from highest to lowest by seat row it would be: Back, Middle and then Front. So yes, there is a difference in the amount of alcohol you consume and the row you choose to sit in.
